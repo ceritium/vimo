@@ -1,0 +1,14 @@
+source 'https://rubygems.org'
+
+ENV["DB"] = "sqlite"
+
+# Runtime dependencies
+gem 'rails', '~>5.1'
+gem 'sqlite3'
+
+group :development, :test do
+  gem "factory_bot_rails"
+end
+
+# Gem under test
+gemspec :path => '../'

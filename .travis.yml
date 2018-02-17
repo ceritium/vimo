@@ -1,0 +1,30 @@
+language: ruby
+cache: bundler
+rvm:
+  - ruby-2.5
+
+gemfile:
+  - gemfiles/Gemfile.5.1.postgres
+  - gemfiles/Gemfile.5.1.mysql2
+  - gemfiles/Gemfile.5.1.sqlite3
+  - gemfiles/Gemfile.5.0.mysql2
+
+matrix:
+  include:
+  - rvm: ruby-2.4
+    gemfile: gemfiles/Gemfile.5.1.postgres
+  - rvm: ruby-2.3
+    gemfile: gemfiles/Gemfile.5.1.postgres
+  - rvm: ruby-2.2
+    gemfile: gemfiles/Gemfile.5.1.postgres
+
+before_script:
+  - cp test/dummy/config/database.ci.yml test/dummy/config/database.yml
+
+script:
+  - bundle exec rake db:create db:schema:load
+  - bundle exec rake test
+  - bundle exec rubocop
+
+notifications:
+  email: false

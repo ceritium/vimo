@@ -1,0 +1,14 @@
+source 'https://rubygems.org'
+
+ENV["DB"] = "mysql"
+
+# Runtime dependencies
+gem 'rails', '~>5.1'
+gem 'mysql2'
+
+group :development, :test do
+  gem "factory_bot_rails"
+end
+
+# Gem under test
+gemspec :path => '../'

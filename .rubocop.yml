@@ -1,0 +1,21 @@
+inherit_gem:
+  rubocop-rails:
+    - config/rails.yml
+
+Lint/UselessAssignment:
+  Enabled: true
+
+Layout/TrailingBlankLines:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+
+Layout/AccessModifierIndentation:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  EnforcedStyle: normal

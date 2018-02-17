@@ -1,0 +1,14 @@
+source 'https://rubygems.org'
+
+ENV["DB"] = "postgresql"
+
+# Runtime dependencies
+gem 'rails', '~>5.1'
+gem 'pg'
+
+group :development, :test do
+  gem "factory_bot_rails"
+end
+
+# Gem under test
+gemspec :path => '../'

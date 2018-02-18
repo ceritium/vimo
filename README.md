@@ -117,7 +117,7 @@ users expand it.
 class Post < ApplicationRecord
   belongs_to :account
 
-  extendable owner: :account
+  expandable owner: :account
 end
 ```
 

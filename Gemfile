@@ -17,4 +17,5 @@ gem "sqlite3"
 # To use a debugger
 group :development, :test do
   gem "factory_bot_rails"
+  gem "pry"
 end

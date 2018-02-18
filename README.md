@@ -118,7 +118,15 @@ class Post < ApplicationRecord
   belongs_to :account
 
   include Vimo::Expandable # OR add it to ApplicationRecord
-  expandable owner: :account
+  vimo_expand owner: :account
+end
+```
+
+The owner should respond to `vimo_entities`
+
+```ruby
+class Account < ApplicationRecord
+  has_many :vimo_entities, class_name: "Vimo::Entity", as: :owner
 end
 ```
 

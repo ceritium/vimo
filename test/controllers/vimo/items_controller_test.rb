@@ -72,7 +72,7 @@ module Vimo
 
     test "create" do
       post entity_items_path(@entity, api_key: @account.api_key),
-        params: { title: "foo" }
+        params: { item: { title: "foo" } }
 
       assert_response :success
       item = @entity.items.last
@@ -82,7 +82,7 @@ module Vimo
 
     test "create error" do
       post entity_items_path(@entity, api_key: @account.api_key),
-        params: { title: "" }
+        params: { item: { title: "" } }
 
       assert_response 422
       assert_equal ({ errors: { title: ["is required"] } }).to_json, @response.body
@@ -91,7 +91,7 @@ module Vimo
     test "update" do
       item = create_item
       put entity_item_path(@entity, item, api_key: @account.api_key),
-        params: { title: "new title" }
+        params: { item: { title: "new title" } }
 
       assert_response :success
       item = @entity.items.last
@@ -101,7 +101,7 @@ module Vimo
     test "update error" do
       item = create_item
       put entity_item_path(@entity, item, api_key: @account.api_key),
-        params: { title: "" }
+        params: { item: { title: "" } }
 
       assert_response 422
       assert_equal ({ errors: { title: ["is required"] } }).to_json, @response.body
@@ -119,7 +119,7 @@ module Vimo
 
     def create_item
       item = @entity.items.build
-      item.assign_params("title" => "foo")
+      item.data = { "title" => "foo" }
       item.save!
       item
     end

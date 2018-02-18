@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180216184732) do
     t.string "system_name"
     t.string "owner_type"
     t.integer "owner_id"
+    t.string "expand_model"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id", "owner_type", "system_name"], name: "entity_unique_system_name", unique: true
@@ -61,7 +62,7 @@ ActiveRecord::Schema.define(version: 20180216184732) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["entity_id"], name: "index_vimo_items_on_entity_id"
-    t.index ["expandable_type", "expandable_id"], name: "index_vimo_items_on_expandable_type_and_expandable_id"
+    t.index ["expandable_type", "expandable_id"], name: "index_vimo_items_on_expandable_type_and_expandable_id", unique: true
   end
 
 end

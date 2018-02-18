@@ -15,14 +15,6 @@ module Vimo
       assert item.errors.messages.present?
       refute item.persisted?
       refute item.valid?
-
-      # input.required = false
-      # input.save
-      #
-      # item = entity.items.build
-      # item.save
-      # assert item.errors.messages.blank?
-      # assert item.persisted?
     end
   end
 end

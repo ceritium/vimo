@@ -4,7 +4,7 @@ module Vimo
   class Item < ApplicationRecord
     serialize :data, JSON
     belongs_to :entity
-    belongs_to :extendable, polymorphic: true, required: false
+    belongs_to :expandable, polymorphic: true, required: false
 
     validate :entity_definition
 

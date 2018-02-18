@@ -173,6 +173,7 @@ PLATFORMS
 DEPENDENCIES
   factory_bot_rails
   m
+  pry
   pry-byebug
   rails (~> 5.1)
   rubocop-rails

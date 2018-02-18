@@ -55,13 +55,13 @@ ActiveRecord::Schema.define(version: 20180216184732) do
 
   create_table "vimo_items", force: :cascade do |t|
     t.integer "entity_id"
-    t.string "extendable_type"
-    t.integer "extendable_id"
+    t.string "expandable_type"
+    t.integer "expandable_id"
     t.text "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["entity_id"], name: "index_vimo_items_on_entity_id"
-    t.index ["extendable_type", "extendable_id"], name: "index_vimo_items_on_extendable_type_and_extendable_id"
+    t.index ["expandable_type", "expandable_id"], name: "index_vimo_items_on_expandable_type_and_expandable_id"
   end
 
 end

@@ -3,5 +3,5 @@
 class Post < ApplicationRecord
   belongs_to :account
 
-  extendable owner: :account
+  vimo_expand owner: :account
 end

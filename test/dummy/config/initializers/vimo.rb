@@ -9,5 +9,3 @@ Vimo.configure do |config|
   # The name of the controller method we'll call to return the current_user.
   config.owner_method = :current_account
 end
-
-ActiveRecord::Base.send :extend, Extendable

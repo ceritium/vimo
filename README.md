@@ -117,6 +117,7 @@ users expand it.
 class Post < ApplicationRecord
   belongs_to :account
 
+  include Vimo::Expandable # OR add it to ApplicationRecord
   expandable owner: :account
 end
 ```

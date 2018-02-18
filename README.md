@@ -107,6 +107,14 @@ end
 
 Setting a `owner` scope the uniquenes constraints.
 
+The owner should respond to `vimo_entities`
+
+```ruby
+class Account < ApplicationRecord
+  vimo_owner
+end
+```
+
 
 ### Expand your models
 
@@ -117,23 +125,12 @@ users expand it.
 class Post < ApplicationRecord
   belongs_to :account
 
-  include Vimo::Expandable # OR add it to ApplicationRecord
   vimo_expand owner: :account
-end
-```
-
-The owner should respond to `vimo_entities`
-
-```ruby
-class Account < ApplicationRecord
-  has_many :vimo_entities, class_name: "Vimo::Entity", as: :owner
 end
 ```
 
 Now can manage the virtual attributes of the model `Post` with the identifier `_expand_posts`.
 
-
-WIP
 
 ## Contributing
 Contribution directions go here.

@@ -38,3 +38,5 @@ module Vimo
     end
   end
 end
+
+ActiveRecord::Base.send :include, Vimo::Expandable

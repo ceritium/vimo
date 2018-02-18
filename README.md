@@ -130,7 +130,7 @@ class Account < ApplicationRecord
 end
 ```
 
-Now can manage the virtual attributes of the model `Post` with the identifier `_extend_posts`.
+Now can manage the virtual attributes of the model `Post` with the identifier `_expand_posts`.
 
 
 WIP

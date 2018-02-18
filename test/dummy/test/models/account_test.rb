@@ -3,7 +3,8 @@
 require "test_helper"
 
 class AccountTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "#vimo_entities" do
+    account = Account.new
+    assert account.vimo_entities
+  end
 end

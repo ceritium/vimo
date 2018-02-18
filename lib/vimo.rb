@@ -2,6 +2,8 @@
 
 require "vimo/engine"
 require "vimo/configuration"
+require "vimo/ownerable"
+require "vimo/expandable"
 
 module Vimo
   # Your code goes here...

@@ -75,7 +75,7 @@ DELETE /vimo/entities/:entity/items/:id
 
 Create an item curl example:
 ```
-curl localhost:3000/vimo/entities/comments/items -X POST -H 'Content-Type: application/json' -d '{"title": "a title"}'
+curl localhost:3000/vimo/entities/comments/items -X POST -H 'Content-Type: application/json' -d '{"item" : {"title": "a title"}}'
 ```
 
 Short path version

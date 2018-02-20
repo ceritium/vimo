@@ -34,7 +34,7 @@ module Vimo
     private
 
     def save_and_respond
-      @item.assign_params(params)
+      @item.data = params[:item]
       @item.save
 
       respond_with @entity, @item

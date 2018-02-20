@@ -4,6 +4,7 @@ class CreateVimoEntities < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :system_name
       t.references :owner, polymorphic: true, index: true
+      t.string :expand_model
 
       t.timestamps
     end

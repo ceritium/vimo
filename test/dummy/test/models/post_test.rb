@@ -5,7 +5,7 @@ require "test_helper"
 class PostTest < ActiveSupport::TestCase
   setup do
     @account = FactoryBot.create(:account)
-    @entity = @account.vimo_entities.create(name: "_expand_posts")
+    @entity = @account.posts.build.expanded.entity
     @entity.fields.create(name: "summary", required: true, kind: "string")
   end
 
@@ -19,5 +19,34 @@ class PostTest < ActiveSupport::TestCase
 
     post.data["summary"] = "foo"
     assert({ "summary" => "foo" }, post.data)
+
+    item = @entity.items.create(data: { summary: "foo" })
+    assert item.errors[:expandable]
+
+    item = @entity.items.create(data: { summary: "foo" }, expandable: @account)
+    assert item.errors[:expandable]
+
+    post = @account.posts.create
+    item = @entity.items.create(data: { summary: "foo" }, expandable: post)
+    assert item.persisted?
+
+    item = @entity.items.create(data: { summary: "foo" }, expandable: post)
+    refute item.persisted?
+
+    item = @entity.items.build(data: { summary: "foo" }, expandable: post)
+
+    assert_raises ActiveRecord::RecordNotUnique do
+      item.save(validate: false)
+    end
+
+    assert_equal post.data, "summary" => "foo"
+    post.data = { "summary" => "bar" }
+    post.save
+    post.reload
+    assert_equal post.data, "summary" => "bar"
+    post.data["summary"] = "foobar"
+    post.save
+    post.reload
+    assert_equal post.data, "summary" => "foobar"
   end
 end

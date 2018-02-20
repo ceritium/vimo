@@ -7,6 +7,9 @@ module Vimo
     belongs_to :expandable, polymorphic: true, required: false
 
     validate :entity_definition
+    validate :expanded
+    validates :expandable_id, uniqueness: { scope: :expandable_type },
+      allow_nil: true
 
     class << self
       def parse(value_o, kind)
@@ -43,26 +46,21 @@ module Vimo
       ({ id: id }).merge(data)
     end
 
-    def assign_params(params)
-      self.data ||= {}
-      self.data = entity.fields.inject(self.data) do |memo, field|
+    private
 
-        name = field.name.to_s
-        kind = field.kind.to_s
-
-        att = params[name]
-        if params.keys.include?(name)
-          memo[name] = self.class.parse(att, kind)
+    def expanded
+      if entity.expand_model.present?
+        if expandable.present?
+          unless expandable.model_name.name == entity.expand_model
+            errors.add(:expandable, "is invalid")
+          end
+        else
+          errors.add(:expandable, "is required")
         end
-
-        memo
       end
     end
 
-    private
-
     def entity_definition
-      self.data ||= {}
       entity.fields.each do |field|
         name = field.name.to_s
         if field.required

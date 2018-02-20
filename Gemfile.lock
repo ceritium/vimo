@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vimo (0.1.2)
+    vimo (0.1.3)
       kaminari
       paginate-responder
       responders

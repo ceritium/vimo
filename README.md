@@ -132,8 +132,5 @@ end
 Now can manage the virtual attributes of the model `Post` with the identifier `_expand_posts`.
 
 
-## Contributing
-Contribution directions go here.
-
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

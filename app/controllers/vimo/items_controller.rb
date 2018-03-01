@@ -4,7 +4,6 @@ require_dependency "vimo/application_controller"
 
 module Vimo
   class ItemsController < ApplicationController
-    skip_before_action :verify_authenticity_token
     before_action :find_entity
     before_action :find_item, only: [:show, :update, :destroy]
 

@@ -8,6 +8,7 @@ module Vimo
     responders Responders::PaginateResponder
     respond_to :json
 
+    skip_before_action :verify_authenticity_token
     before_action :authentication_filter
 
     def page
@@ -48,7 +49,7 @@ module Vimo
     # A helper method to access the BlogDashboard::configuration
     # at the class level
     def self.vimo_conf
-      Vimo::configuration
+      Vimo.configuration
     end
 
     # A helper method to access the BlogDashboard::configuration

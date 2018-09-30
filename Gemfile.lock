@@ -89,7 +89,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     nio4r (2.2.0)
-    nokogiri (1.8.2)
+    nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     paginate-responder (1.7.0)
       rack-link_headers (>= 2.2)

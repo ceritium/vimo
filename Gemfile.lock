@@ -63,6 +63,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
+    jaro_winkler (1.5.1)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -93,9 +94,9 @@ GEM
     paginate-responder (1.7.0)
       rack-link_headers (>= 2.2)
     parallel (1.12.1)
-    parser (2.4.0.2)
-      ast (~> 2.3)
-    powerpack (0.1.1)
+    parser (2.5.1.2)
+      ast (~> 2.4.0)
+    powerpack (0.1.2)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -135,17 +136,18 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
-    rubocop (0.52.1)
+    rubocop (0.59.2)
+      jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
-      parser (>= 2.4.0.2, < 3.0)
+      parser (>= 2.5, != 2.5.1.1)
       powerpack (~> 0.1)
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    rubocop-rails (1.2.1)
+    rubocop-rails_config (0.2.4)
       railties (>= 3.0)
-      rubocop (~> 0.49)
-    ruby-progressbar (1.9.0)
+      rubocop (~> 0.56)
+    ruby-progressbar (1.10.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-commands-m (1.0.1)
@@ -162,7 +164,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    unicode-display_width (1.3.0)
+    unicode-display_width (1.4.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -176,11 +178,11 @@ DEPENDENCIES
   pry
   pry-byebug
   rails (~> 5.1)
-  rubocop-rails
+  rubocop-rails_config
   spring
   spring-commands-m
   sqlite3
   vimo!
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

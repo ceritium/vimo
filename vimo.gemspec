@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "responders"
   s.add_dependency "paginate-responder"
 
-  s.add_development_dependency "rubocop-rails"
+  s.add_development_dependency "rubocop-rails_config"
   s.add_development_dependency "pry-byebug"
   s.add_development_dependency "spring"
   s.add_development_dependency "spring-commands-m"

@@ -112,7 +112,7 @@ module Vimo
       delete entity_item_path(@entity, item, api_key: @account.api_key)
 
       assert_response :success
-      refute Item.find_by(id: item.id)
+      assert_not Item.find_by(id: item.id)
     end
 
     private

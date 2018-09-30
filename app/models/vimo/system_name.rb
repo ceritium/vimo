@@ -49,7 +49,7 @@ module Vimo
     # we can guess a reasonable one.
     #
     def internal_system_name
-      "#{self.class.to_s}-#{SecureRandom.hex(6)}"
+      "#{self.class}-#{SecureRandom.hex(6)}"
     end
   end
 end

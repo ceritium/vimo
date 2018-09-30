@@ -13,7 +13,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20180216184732) do
-
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "api_key"
@@ -64,5 +63,4 @@ ActiveRecord::Schema.define(version: 20180216184732) do
     t.index ["entity_id"], name: "index_vimo_items_on_entity_id"
     t.index ["expandable_type", "expandable_id"], name: "index_vimo_items_on_expandable_type_and_expandable_id", unique: true
   end
-
 end

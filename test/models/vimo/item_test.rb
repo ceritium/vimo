@@ -13,8 +13,8 @@ module Vimo
       item.save
 
       assert item.errors.messages.present?
-      refute item.persisted?
-      refute item.valid?
+      assert_not item.persisted?
+      assert_not item.valid?
     end
   end
 end

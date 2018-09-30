@@ -5,7 +5,6 @@ module Vimo
     extend ActiveSupport::Concern
 
     included do
-
       def self.vimo_expand(options = {})
         @belongs_to_owner = options[:owner]
         data_method = options[:data_method] || "data"

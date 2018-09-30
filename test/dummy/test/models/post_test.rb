@@ -31,7 +31,7 @@ class PostTest < ActiveSupport::TestCase
     assert item.persisted?
 
     item = @entity.items.create(data: { summary: "foo" }, expandable: post)
-    refute item.persisted?
+    assert_not item.persisted?
 
     item = @entity.items.build(data: { summary: "foo" }, expandable: post)
 

@@ -5,7 +5,7 @@ Rails engine that allow to your users create and customize their own virtual mod
 ## Warning
 
 This engine is in a very early stage and the DSL and APIs could change, if you
-are interested on use it you can emailme: `ceritium@gmail.com`.
+are interested on use it you can email me: `ceritium@gmail.com`.
 
 ## Installation
 
